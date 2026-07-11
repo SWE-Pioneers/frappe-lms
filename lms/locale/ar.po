@@ -9912,3 +9912,295 @@ msgstr "{} ناجح"
 #: lms/lms/workspace/learning/learning.json
 msgid "{} Published"
 msgstr "{} منشور"
+
+#. ai-translated; needs-native-review
+msgid "Account"
+msgstr "حساب"
+
+#. ai-translated; needs-native-review
+msgid "Answer a few quick questions so we can set Frappe Learning up for you"
+msgstr "أجب عن بعض الأسئلة السريعة حتى نتمكن من إعداد Frappe Learning لك"
+
+#. ai-translated; needs-native-review
+msgid "Award my first certificate"
+msgstr "منح أول شهادة لي"
+
+#. ai-translated; needs-native-review
+msgid "Back"
+msgstr "رجوع"
+
+#. ai-translated; needs-native-review
+msgid "Back to previous question"
+msgstr "الرجوع إلى السؤال السابق"
+
+#. ai-translated; needs-native-review
+msgid "Canvas"
+msgstr "Canvas"
+
+#. ai-translated; needs-native-review
+msgid "Choose the email service provider you want to configure."
+msgstr "اختر مزود خدمة البريد الإلكتروني الذي تريد تكوينه."
+
+#. ai-translated; needs-native-review
+msgid "Coaching or Training Institute"
+msgstr "معهد تدريب أو تأهيل"
+
+#. ai-translated; needs-native-review
+msgid "College or University"
+msgstr "كلية أو جامعة"
+
+#. ai-translated; needs-native-review
+msgid "Company or Workplace"
+msgstr "شركة أو مكان عمل"
+
+#. ai-translated; needs-native-review
+msgid "Content is required"
+msgstr "المحتوى مطلوب"
+
+#. ai-translated; needs-native-review
+msgid "Create a reusable email template for your notifications."
+msgstr "أنشئ قالب بريد إلكتروني قابلاً لإعادة الاستخدام لإشعاراتك."
+
+#. ai-translated; needs-native-review
+msgid "Customer Academy"
+msgstr "أكاديمية العملاء"
+
+#. ai-translated; needs-native-review
+msgid "Default Inbox"
+msgstr "صندوق الوارد الافتراضي"
+
+#. ai-translated; needs-native-review
+msgid "Default Sending"
+msgstr "الإرسال الافتراضي"
+
+#. ai-translated; needs-native-review
+msgid "Default Sending & Inbox"
+msgstr "الإرسال والوارد الافتراضي"
+
+#. ai-translated; needs-native-review
+msgid "Duplicate"
+msgstr "نسخ"
+
+#. ai-translated; needs-native-review
+msgid "Duplicate Template"
+msgstr "نسخ القالب"
+
+#. ai-translated; needs-native-review
+msgid "Edit Email"
+msgstr "تعديل البريد الإلكتروني"
+
+#. ai-translated; needs-native-review
+msgid "Edit your email account"
+msgstr "تعديل حساب بريدك الإلكتروني"
+
+#. ai-translated; needs-native-review
+msgid "Edit your reusable email template."
+msgstr "تعديل قالب البريد الإلكتروني القابل لإعادة الاستخدام."
+
+#. ai-translated; needs-native-review
+msgid "Email Account deleted successfully"
+msgstr "تم حذف حساب البريد الإلكتروني بنجاح"
+
+#. ai-translated; needs-native-review
+msgid "Email Accounts"
+msgstr "حسابات البريد الإلكتروني"
+
+#. ai-translated; needs-native-review
+msgid "Email Template deleted successfully"
+msgstr "تم حذف قالب البريد الإلكتروني بنجاح"
+
+#. ai-translated; needs-native-review
+msgid "Email account created"
+msgstr "تم إنشاء حساب البريد الإلكتروني"
+
+#. ai-translated; needs-native-review
+msgid "Email account updated successfully"
+msgstr "تم تحديث حساب البريد الإلكتروني بنجاح"
+
+#. ai-translated; needs-native-review
+msgid "Email service {0} is not supported"
+msgstr "خدمة البريد الإلكتروني {0} غير مدعومة"
+
+#. ai-translated; needs-native-review
+msgid "Error deleting email account"
+msgstr "حدث خطأ أثناء حذف حساب البريد الإلكتروني"
+
+#. ai-translated; needs-native-review
+msgid "Error deleting email template"
+msgstr "حدث خطأ أثناء حذف قالب البريد الإلكتروني"
+
+#. ai-translated; needs-native-review
+msgid "Failed to create email account, Invalid credentials"
+msgstr "فشل إنشاء حساب البريد الإلكتروني، بيانات اعتماد غير صالحة"
+
+#. ai-translated; needs-native-review
+msgid "Failed to update email account, Invalid credentials"
+msgstr "فشل تحديث حساب البريد الإلكتروني، بيانات اعتماد غير صالحة"
+
+#. ai-translated; needs-native-review
+msgid "Google Classroom"
+msgstr "Google Classroom"
+
+#. ai-translated; needs-native-review
+msgid "Google Drive"
+msgstr "Google Drive"
+
+#. ai-translated; needs-native-review
+msgid "Inbox"
+msgstr "صندوق الوارد"
+
+#. ai-translated; needs-native-review
+msgid "Just exploring"
+msgstr "مجرد استكشاف"
+
+#. ai-translated; needs-native-review
+msgid "Kajabi"
+msgstr "Kajabi"
+
+#. ai-translated; needs-native-review
+msgid "Launch a paid course"
+msgstr "إطلاق دورة تدريبية مدفوعة"
+
+#. ai-translated; needs-native-review
+msgid "Manage your email accounts and configure incoming and outgoing settings."
+msgstr "أدر حسابات بريدك الإلكتروني واضبط إعدادات الوارد والصادر."
+
+#. ai-translated; needs-native-review
+msgid "Moodle"
+msgstr "Moodle"
+
+#. ai-translated; needs-native-review
+msgid "Name is required"
+msgstr "الاسم مطلوب"
+
+#. ai-translated; needs-native-review
+msgid "Next question"
+msgstr "السؤال التالي"
+
+#. ai-translated; needs-native-review
+msgid "No LMS yet"
+msgstr "لا يوجد نظام إدارة تعلم بعد"
+
+#. ai-translated; needs-native-review
+msgid "No changes made"
+msgstr "لم تُجرَ أي تغييرات"
+
+#. ai-translated; needs-native-review
+msgid "Non-profit or Government"
+msgstr "منظمة غير ربحية أو حكومية"
+
+#. ai-translated; needs-native-review
+msgid "Notion"
+msgstr "Notion"
+
+#. ai-translated; needs-native-review
+msgid "Onboard my existing learners"
+msgstr "إدراج المتعلمين الحاليين"
+
+#. ai-translated; needs-native-review
+msgid "Personal Business"
+msgstr "عمل شخصي"
+
+#. ai-translated; needs-native-review
+msgid "Publish my first course"
+msgstr "نشر أول دورة تدريبية لي"
+
+#. ai-translated; needs-native-review
+msgid "Question {0} of {1}"
+msgstr "السؤال {0} من {1}"
+
+#. ai-translated; needs-native-review
+msgid "School"
+msgstr "مدرسة"
+
+#. ai-translated; needs-native-review
+msgid "Setup Email"
+msgstr "إعداد البريد الإلكتروني"
+
+#. ai-translated; needs-native-review
+msgid "Skip for now"
+msgstr "تخطي الآن"
+
+#. ai-translated; needs-native-review
+msgid "Spreadsheets"
+msgstr "جداول البيانات"
+
+#. ai-translated; needs-native-review
+msgid "TalentLMS"
+msgstr "TalentLMS"
+
+#. ai-translated; needs-native-review
+msgid "Teachable"
+msgstr "Teachable"
+
+#. ai-translated; needs-native-review
+msgid "The last day to schedule your evaluation is {0}."
+msgstr "آخر يوم لجدولة تقييمك هو {0}."
+
+#. ai-translated; needs-native-review
+msgid "Thinkific"
+msgstr "Thinkific"
+
+#. ai-translated; needs-native-review
+msgid "This permanently deletes the email account and cannot be undone."
+msgstr "يؤدي هذا إلى حذف حساب البريد الإلكتروني نهائياً ولا يمكن التراجع عنه."
+
+#. ai-translated; needs-native-review
+msgid "This permanently deletes the email template and cannot be undone."
+msgstr "يؤدي هذا إلى حذف قالب البريد الإلكتروني نهائياً ولا يمكن التراجع عنه."
+
+#. ai-translated; needs-native-review
+msgid "Update Account"
+msgstr "تحديث الحساب"
+
+#. ai-translated; needs-native-review
+msgid "Update Template"
+msgstr "تحديث القالب"
+
+#. ai-translated; needs-native-review
+msgid "What are you using today to manage learning?"
+msgstr "ما الذي تستخدمه اليوم لإدارة التعلم؟"
+
+#. ai-translated; needs-native-review
+msgid "What's the first milestone you'd like to achieve?"
+msgstr "ما أول إنجاز ترغب في تحقيقه؟"
+
+#. ai-translated; needs-native-review
+msgid "When you feel ready, you can schedule an evaluation to get certified."
+msgstr "عندما تشعر بأنك مستعد، يمكنك جدولة تقييم للحصول على الشهادة."
+
+#. ai-translated; needs-native-review
+msgid "Where will you be using Frappe Learning?"
+msgstr "أين ستستخدم Frappe Learning؟"
+
+#. ai-translated; needs-native-review
+msgid "You cannot book an evaluation for another user."
+msgstr "لا يمكنك حجز تقييم لمستخدم آخر."
+
+#. ai-translated; needs-native-review
+msgid "You're enrolled and all set! The course content is ready, so you can start learning right away and go at your own pace."
+msgstr "تم تسجيلك وكل شيء جاهز! محتوى الدورة التدريبية جاهز، لذا يمكنك البدء في التعلم على الفور والتقدم وفق وتيرتك الخاصة."
+
+#. ai-translated; needs-native-review
+msgid "You're enrolled in {0} – start whenever you're ready"
+msgstr "تم تسجيلك في {0} – ابدأ متى كنت مستعداً"
+
+#. ai-translated; needs-native-review
+msgid "data must be an object"
+msgstr "يجب أن تكون البيانات كائناً"
+
+#. ai-translated; needs-native-review
+msgid "here"
+msgstr "هنا"
+
+#. ai-translated; needs-native-review
+msgid "service must be a string"
+msgstr "يجب أن تكون الخدمة نصاً"
+
+#. ai-translated; needs-native-review
+msgid "{0} must be a string"
+msgstr "يجب أن يكون {0} نصاً"
+
+#. ai-translated; needs-native-review
+msgid "{0}% complete"
+msgstr "{0}% مكتمل"
