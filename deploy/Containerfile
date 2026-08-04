@@ -1,0 +1,51 @@
+# Custom LMS image for SWE-Pioneers demo — v16
+# Base: frappe/erpnext:v16.26.2 — Frappe does not publish a standalone "frappe-only"
+# image on Docker Hub (only frappe/erpnext), so this is the same proven base as the
+# prod erpnext image. erpnext is baked in but never installed on an lms site
+# (--install-app payments --install-app lms only), so it's unused image weight, not a
+# functional dependency. lms hard-declares required_apps = ["frappe/payments"] in its
+# hooks.py, so payments must be baked in (and installed) on every lms site.
+FROM frappe/erpnext:v16.26.2
+
+# yarn is not shipped in the runtime image; add it as a safety net for any app
+# that needs its own node_modules installed during `bench build`.
+USER root
+RUN npm install -g yarn >/dev/null 2>&1 || true
+
+USER frappe
+WORKDIR /home/frappe/frappe-bench
+
+# --- Payments (public app, required by lms — must come first); --skip-assets since
+# the combined build happens in one shot below ---
+RUN bench get-app --branch version-16 payments --skip-assets https://github.com/SWE-Pioneers/frappe-payments
+
+# --- LMS (SWE-Pioneers fork, main branch — includes Arabic i18n); --skip-assets for the same reason ---
+RUN bench get-app --branch main lms --skip-assets https://github.com/SWE-Pioneers/frappe-lms
+
+# lms's frontend (frontend/src/socket.js) statically imports `socketio_port` from
+# sites/common_site_config.json at build time. `sites` is a VOLUME declared by the base
+# frappe/erpnext image, so any write to it is discarded once a RUN's container commits —
+# a value seeded in one RUN step is gone by the next. Seed the key and run the build in
+# the SAME RUN so both happen inside one container session; the built JS/CSS output
+# itself lands under apps/<app>/<app>/public (not under sites/), so it persists in the
+# image normally. The real runtime configurator sets this key identically on every
+# container start regardless.
+# `bench build`'s manifest + per-app symlinks land in sites/assets/ (a plain new
+# directory at build time, since no runtime symlink exists yet), but `sites` is a VOLUME
+# declared by the base image, so that output is silently discarded when this RUN's
+# container commits into a layer. The actual bundle files under apps/<app>/<app>/public
+# persist fine, but the manifest/symlinks would otherwise be lost, leaving the
+# container entrypoint's `ln -s assets sites/assets` (at runtime) pointing at a stale,
+# pre-lms manifest. Copy the build's real output into the non-volume assets/ path, in
+# the SAME RUN step, so it's baked into the image for every container started from it.
+# `bench build`'s app-symlink step (generate_assets_map -> get_all_apps) also reads
+# sites/apps.txt to decide which apps to symlink — payments/lms only get added to
+# apps.txt at site-creation time, not by `get-app`, so seed it here too.
+RUN printf 'frappe\npayments\nlms\n' > sites/apps.txt \
+    && python3 -c "import json,pathlib; p=pathlib.Path('sites/common_site_config.json'); d=json.loads(p.read_text()) if p.exists() else {}; d['socketio_port']=9000; p.write_text(json.dumps(d))" \
+    && bench build \
+    && bench compile-po-to-mo --app frappe --force \
+    && bench compile-po-to-mo --app payments --force \
+    && bench compile-po-to-mo --app lms --force \
+    && rm -rf /home/frappe/frappe-bench/assets \
+    && cp -a /home/frappe/frappe-bench/sites/assets /home/frappe/frappe-bench/assets
