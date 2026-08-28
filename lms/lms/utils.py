@@ -2415,7 +2415,7 @@ def update_certificate_purchase(course: str, payment_name: str):
 	)
 
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def get_programs():
 	if not guest_access_allowed():
 		frappe.throw(_("Please login to view programs."))
