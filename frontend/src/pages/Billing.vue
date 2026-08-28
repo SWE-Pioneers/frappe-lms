@@ -188,6 +188,37 @@
 						</div>
 					</div>
 					<div
+						v-if="!isZeroAmount && (enabledGateways.data?.length ?? 0) > 1"
+						class="border-t pt-4 mt-8 space-y-2"
+					>
+						<div class="text-ink-gray-5 uppercase text-xs">
+							{{ __('Payment method') }}
+						</div>
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+							<label
+								v-for="gateway in enabledGateways.data"
+								:key="gateway.name"
+								class="flex items-center gap-x-3 rounded-md border p-3 cursor-pointer"
+								:class="
+									selectedGateway == gateway.name
+										? 'border-outline-gray-4 bg-surface-gray-2'
+										: 'border-outline-gray-2'
+								"
+							>
+								<input
+									type="radio"
+									name="payment_gateway"
+									:value="gateway.name"
+									v-model="selectedGateway"
+									class="cursor-pointer"
+								/>
+								<span class="text-sm text-ink-gray-9">
+									{{ gateway.label }}
+								</span>
+							</label>
+						</div>
+					</div>
+					<div
 						class="flex flex-col lg:flex-row items-start lg:items-center justify-between border-t pt-4 mt-8 space-y-4 lg:space-y-0"
 					>
 						<div>
@@ -349,6 +380,17 @@ const normalizeState = () => {
 	if (canonical) billingDetails.state = canonical
 }
 
+const selectedGateway = ref('')
+
+const enabledGateways = createResource({
+	url: 'payments.utils.get_enabled_payment_gateways',
+	auto: true,
+	onSuccess(list) {
+		// Auto-select when there is exactly one, preserving today's single-gateway UX.
+		if (list?.length === 1) selectedGateway.value = list[0].name
+	},
+})
+
 const paymentLink = createResource({
 	url: 'lms.lms.payments.get_payment_link',
 	makeParams(values) {
@@ -359,6 +401,7 @@ const paymentLink = createResource({
 			payment_for_certificate: props.type == 'certificate',
 			coupon_code: appliedCoupon.value,
 			country: billingDetails.country,
+			payment_gateway: selectedGateway.value || undefined,
 		}
 		return data
 	},
@@ -369,6 +412,13 @@ const generatePaymentLink = () => {
 		{},
 		{
 			validate() {
+				if (
+					!isZeroAmount.value &&
+					(enabledGateways.data?.length ?? 0) > 1 &&
+					!selectedGateway.value
+				) {
+					return __('Please choose a payment method.')
+				}
 				if (!billingDetails.source && fieldMeta.source?.reqd) {
 					return __('Please let us know where you heard about us from.')
 				}
