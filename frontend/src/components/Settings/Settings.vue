@@ -397,6 +397,7 @@ const tabsStructure = computed(() => {
 											name: 'default_currency',
 											type: 'Link',
 											doctype: 'Currency',
+											filters: { enabled: 1 },
 											description:
 												'Default currency used for course and batch pricing.',
 										},
