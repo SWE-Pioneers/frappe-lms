@@ -1,6 +1,8 @@
 import frappe
 from frappe import _
 
+from payments.utils import get_enabled_payment_gateways
+
 from lms.lms.utils import (
 	complete_enrollment,
 	get_lms_route,
@@ -12,6 +14,24 @@ GATEWAY_NOT_CONFIGURED_TITLE = "Payment Gateway Not Configured"
 
 def get_payment_gateway():
 	return frappe.db.get_single_value("LMS Settings", "payment_gateway")
+
+
+def validate_chosen_gateway(payment_gateway: str) -> None:
+	enabled = {g["name"] for g in get_enabled_payment_gateways()}
+	if payment_gateway not in enabled:
+		frappe.throw(
+			_("{0} is not an available payment method.").format(frappe.bold(payment_gateway)),
+			title=_(GATEWAY_NOT_CONFIGURED_TITLE),
+		)
+
+
+def resolve_gateway(payment_gateway: str | None) -> str:
+	"""A buyer's chosen gateway (validated against the enabled set) or, when none
+	is chosen, the single configured default — today's behavior, unchanged."""
+	if payment_gateway:
+		validate_chosen_gateway(payment_gateway)
+		return payment_gateway
+	return get_payment_gateway()
 
 
 def get_controller(payment_gateway):
@@ -53,8 +73,9 @@ def get_payment_link(
 	payment_for_certificate: int,
 	coupon_code: str | None = None,
 	country: str | None = None,
+	payment_gateway: str | None = None,
 ):
-	payment_gateway = get_payment_gateway()
+	payment_gateway = resolve_gateway(payment_gateway)
 	address = frappe._dict(address)
 	redirect_to = get_redirect_url(doctype, docname, payment_for_certificate)
 

@@ -10204,3 +10204,9 @@ msgstr "يجب أن يكون {0} نصاً"
 #. ai-translated; needs-native-review
 msgid "{0}% complete"
 msgstr "{0}% مكتمل"
+
+msgid "Payment method"
+msgstr "طريقة الدفع"
+
+msgid "Please choose a payment method."
+msgstr "الرجاء اختيار طريقة الدفع."
