@@ -12,7 +12,7 @@ app_icon_route = "/lms"
 app_color = "grey"
 app_email = "jannat@frappe.io"
 app_license = "AGPL"
-required_apps = ["frappe/payments"]
+required_apps = ["frappe/payments", "swe_platform"]
 
 
 def get_lms_path():
